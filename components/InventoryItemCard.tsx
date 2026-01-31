@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { InventoryItem, ItemStatus } from '../types';
-import { Edit2, ExternalLink } from 'lucide-react';
+import { Edit2 } from 'lucide-react';
 
 interface Props {
   item: InventoryItem;
@@ -53,9 +53,6 @@ const InventoryItemCard: React.FC<Props> = ({ item, onEdit }) => {
               className="p-2 bg-gray-50 text-gray-600 rounded-lg hover:bg-gray-100"
             >
               <Edit2 className="w-4 h-4" />
-            </button>
-            <button className="p-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100">
-              <ExternalLink className="w-4 h-4" />
             </button>
           </div>
         </div>
