@@ -1,0 +1,7 @@
+{
+  "name": "MerManager PWA",
+  "description": "メルカリ出品者のための、AIを活用した在庫・売上管理PWAアプリ。Next.jsなしのReactとFirebaseで構築されています。",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
