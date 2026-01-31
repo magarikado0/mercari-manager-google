@@ -87,6 +87,18 @@ const App: React.FC = () => {
     }
   };
 
+  const handleLogin = async () => {
+    try {
+      await signInWithGoogle();
+    } catch (err: any) {
+      // ユーザーがポップアップを閉じた場合はエラーを表示しない
+      if (err.code === 'auth/popup-closed-by-user') return;
+      
+      console.error("Login failed:", err);
+      alert("ログインに失敗しました。ネットワーク状況を確認してください。");
+    }
+  };
+
   const handleDeleteProduct = async (id: string) => {
     if (!window.confirm("本当に削除しますか？")) return;
     try {
@@ -126,18 +138,13 @@ const App: React.FC = () => {
         </div>
         
         <button 
-          onClick={signInWithGoogle}
+          onClick={handleLogin}
           className="w-full max-w-xs flex items-center justify-center gap-3 bg-white border-2 border-gray-100 py-4 px-6 rounded-2xl shadow-sm hover:bg-gray-50 hover:border-gray-200 active:scale-95 transition-all text-gray-700 font-bold mb-4"
         >
           <img src="https://www.google.com/favicon.ico" className="w-5 h-5" alt="Google" />
           Googleでログイン
         </button>
         
-        <div className="mt-8 px-4 py-2 bg-amber-50 rounded-lg border border-amber-100">
-          <p className="text-[11px] text-amber-700 text-center font-medium">
-            デモ環境：データはブラウザに保存されます
-          </p>
-        </div>
       </div>
     );
   }
